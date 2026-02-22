@@ -17,7 +17,11 @@ Each branch contains a ready-to-use Cfx server artifact for a specific platform 
 
 ## Usage
 
-### 1. Clone the branch you need
+### 1. Requirement
+
+> Download & install Git on your Operation System: https://git-scm.com/install/
+
+### 2. Clone the branch you need
 
 ```bash
 # Example: stable or latest Windows artifact
@@ -29,7 +33,7 @@ git clone -b stable-linux https://github.com/Firou91/cfx-artifact.git
 git clone -b latest-linux https://github.com/Firou91/cfx-artifact.git
 ```
 
-### 2. Update when a new version is available
+### 3. Update when a new version is available
 
 When the workflow publishes a newer artifact, simply pull to get it:
 
