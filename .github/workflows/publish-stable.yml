@@ -1,4 +1,4 @@
-name: Publish FiveM Artifact (Stable)
+name: Publish Cfx Artifact (Stable)
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: "Forcer la publication même si la version est identique"
+        description: "Force publication even if the version is identical"
         required: false
         default: "false"
 
@@ -211,7 +211,7 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "chore: publish fivem artifact (stable/${{ matrix.platform }}) ${{ steps.meta.outputs.recommended_version }}"
+          git commit -m "chore: publish cfx artifact (stable/${{ matrix.platform }}) ${{ steps.meta.outputs.recommended_version }}"
           git push origin "${{ matrix.branch }}"
 
       - name: Skip message
