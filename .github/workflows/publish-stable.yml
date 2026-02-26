@@ -185,6 +185,8 @@ jobs:
         if: steps.check.outputs.update_needed == 'true'
         run: |
           set -xeuo pipefail
+          # Ensure extracted archive did not overwrite root .gitignore.
+          git show origin/main:.gitignore > .gitignore
           local_hash=$(git hash-object .gitignore)
           main_hash=$(git show origin/main:.gitignore | git hash-object --stdin)
           if [ "$local_hash" != "$main_hash" ]; then
