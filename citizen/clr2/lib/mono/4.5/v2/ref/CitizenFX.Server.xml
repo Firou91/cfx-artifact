@@ -3214,7 +3214,7 @@
             <summary>
             Sets the displayed sprite for a specific blip.
             
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
             <param name="blip">
             The blip to change.
@@ -6919,7 +6919,7 @@
             <summary>
             Sets the displayed sprite for a specific blip.
             
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.SET_CONVAR">

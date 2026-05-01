@@ -2257,7 +2257,7 @@ declare function ScheduleResourceTick(resourceName: string): void;
 
 /**
  * Sets the displayed sprite for a specific blip.
- * There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+ * There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
  * @param blip The blip to change.
  * @param spriteId The sprite ID to set.
  */
