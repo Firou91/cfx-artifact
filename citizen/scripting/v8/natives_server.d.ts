@@ -1040,7 +1040,7 @@ declare function GetNumPlayerTokens(playerSrc: string): number;
 
 /**
  * Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
- * See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+ * See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
  * @param resourceName The resource name.
  * @param metadataKey The key to look up in the resource manifest.
  */
@@ -1428,7 +1428,7 @@ declare function GetResourceKvpString(key: string): string;
 
 /**
  * Gets the metadata value at a specified key/index from a resource's manifest.
- * See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+ * See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
  * @param resourceName The resource name.
  * @param metadataKey The key in the resource manifest.
  * @param index The value index, in a range from \[0..GET_NUM_RESOURCE_METDATA-1].

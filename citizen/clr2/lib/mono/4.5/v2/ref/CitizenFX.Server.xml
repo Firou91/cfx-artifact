@@ -1516,7 +1516,7 @@
         <member name="M:CitizenFX.Server.Native.Natives.GetNumResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString)">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -2065,7 +2065,7 @@
         <member name="M:CitizenFX.Server.Native.Natives.GetResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Int32)">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -5914,7 +5914,7 @@
         <member name="F:CitizenFX.Server.Native.Hash.GET_NUM_RESOURCE_METADATA">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.GET_NUM_RESOURCES">
@@ -6228,7 +6228,7 @@
         <member name="F:CitizenFX.Server.Native.Hash.GET_RESOURCE_METADATA">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.GET_RESOURCE_PATH">
