@@ -316,6 +316,8 @@
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.CanPlayerStartCommerceSession(CitizenFX.Core.CString)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Returns whether or not the specified player has enough information to start a commerce session for.
             </summary>
             <param name="playerSrc">
@@ -598,6 +600,8 @@
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.DoesPlayerOwnSku(CitizenFX.Core.CString,System.Int32)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
+            
             Requests whether or not the player owns the specified SKU.
             </summary>
             <param name="playerSrc">
@@ -2775,6 +2779,8 @@
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.IsPlayerCommerceInfoLoaded(CitizenFX.Core.CString)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
+            
             Requests whether or not the commerce data for the specified player has loaded.
             </summary>
             <param name="playerSrc">
@@ -2880,6 +2886,8 @@
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.LoadPlayerCommerceData(CitizenFX.Core.CString)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
+            
             Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
             </summary>
             <param name="playerSrc">
@@ -3159,6 +3167,8 @@
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.RequestPlayerCommerceSession(CitizenFX.Core.CString,System.Int32)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
             will open the browser prompting further purchase details.
             </summary>
@@ -5217,6 +5227,8 @@
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.CAN_PLAYER_START_COMMERCE_SESSION">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Returns whether or not the specified player has enough information to start a commerce session for.
             </summary>
         </member>
@@ -5337,6 +5349,8 @@
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.DOES_PLAYER_OWN_SKU">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
+            
             Requests whether or not the player owns the specified SKU.
             </summary>
         </member>
@@ -6648,6 +6662,8 @@
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.IS_PLAYER_COMMERCE_INFO_LOADED">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
+            
             Requests whether or not the commerce data for the specified player has loaded.
             </summary>
         </member>
@@ -6711,6 +6727,8 @@
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.LOAD_PLAYER_COMMERCE_DATA">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
+            
             Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
             </summary>
         </member>
@@ -6894,6 +6912,8 @@
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.REQUEST_PLAYER_COMMERCE_SESSION">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
             will open the browser prompting further purchase details.
             </summary>

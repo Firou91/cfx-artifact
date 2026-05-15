@@ -199,6 +199,7 @@ global.ApplyForceToEntity = function (entity, forceType, x, y, z, offX, offY, of
 };
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
  * Returns whether or not the specified player has enough information to start a commerce session for.
  * @param playerSrc The player handle
  * @return True or false.
@@ -412,6 +413,7 @@ global.DoesPlayerExist = function (playerSrc) {
 };
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
  * Requests whether or not the player owns the specified SKU.
  * @param playerSrc The player handle
  * @param skuId The ID of the SKU.
@@ -2389,6 +2391,7 @@ global.IsPlayerAceAllowed = function (playerSrc, object) {
 };
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
  * Requests whether or not the commerce data for the specified player has loaded.
  * @param playerSrc The player handle
  * @return A boolean.
@@ -2489,6 +2492,7 @@ global.IsVehicleWindowIntact = function (vehicle, windowIndex) {
 };
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
  * Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
  * @param playerSrc The player handle
  */
@@ -2748,6 +2752,7 @@ global.RemoveWeaponFromPed = function (ped, weaponHash) {
 };
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
  * Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
  * will open the browser prompting further purchase details.
  * @param playerSrc The player handle

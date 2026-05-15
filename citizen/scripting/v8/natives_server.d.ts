@@ -198,6 +198,7 @@ declare function AddStateBagChangeHandler(keyFilter: string, bagFilter: string, 
 declare function ApplyForceToEntity(entity: number, forceType: number, x: number, y: number, z: number, offX: number, offY: number, offZ: number, nComponent: number, bLocalForce: boolean, bLocalOffset: boolean, bScaleByMass: boolean, bPlayAudio: boolean, bScaleByTimeWarp: boolean): void;
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
  * Returns whether or not the specified player has enough information to start a commerce session for.
  * @param playerSrc The player handle
  * @return True or false.
@@ -369,6 +370,7 @@ declare function DoesEntityExist(entity: number): boolean;
 declare function DoesPlayerExist(playerSrc: string): boolean;
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
  * Requests whether or not the player owns the specified SKU.
  * @param playerSrc The player handle
  * @param skuId The ID of the SKU.
@@ -1944,6 +1946,7 @@ declare function IsPedUsingActionMode(ped: number): boolean;
 declare function IsPlayerAceAllowed(playerSrc: string, object: string): boolean;
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
  * Requests whether or not the commerce data for the specified player has loaded.
  * @param playerSrc The player handle
  * @return A boolean.
@@ -2020,6 +2023,7 @@ declare function IsVehicleTyreBurst(vehicle: number, wheelID: number, completely
 declare function IsVehicleWindowIntact(vehicle: number, windowIndex: number): boolean;
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
  * Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
  * @param playerSrc The player handle
  */
@@ -2223,6 +2227,7 @@ declare function RemoveWeaponComponentFromPed(ped: number, weaponHash: string | 
 declare function RemoveWeaponFromPed(ped: number, weaponHash: string | number): void;
 
 /**
+ * > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
  * Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
  * will open the browser prompting further purchase details.
  * @param playerSrc The player handle
