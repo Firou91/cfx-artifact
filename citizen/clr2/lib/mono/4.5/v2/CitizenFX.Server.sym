@@ -1,5 +1,5 @@
-MODULE windows unknown CB41189B425948759416D7F3A4E9C6501 cfx-fivem-3
-INFO CODE_ID 6A05D3971E000 CitizenFX.Server.dll
+MODULE windows unknown 76C716752F19498C8B559A43D4E2CDEE1 cfx-fivem-3
+INFO CODE_ID 6A16B33A1E000 CitizenFX.Server.dll
 FILE 1 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Game\Shared\Game.cs
 FILE 2 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Game\Shared\Interfaces.cs
 FILE 3 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Native\CustomNativeWrapper.cs
