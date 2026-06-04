@@ -48,12 +48,12 @@
     "src": "../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-vietnamese-wght-normal.woff2"
   },
   "index.html": {
-    "file": "index-f9doidst.v800.js",
+    "file": "index-owz9jxb6.v800.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "index-iqd44fe8.v800.css"
+      "index-l7rafwnv.v800.css"
     ],
     "assets": [
       "inter-cyrillic-ext-wght-normal-hbfcwph7.v800.woff2",
