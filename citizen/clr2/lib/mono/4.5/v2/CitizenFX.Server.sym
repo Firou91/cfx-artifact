@@ -1,15 +1,15 @@
-MODULE windows unknown 517A0194CA8B445E859B5FF73BC406641 cfx-fivem-0
-INFO CODE_ID 6A74A2801E000 CitizenFX.Server.dll
-FILE 1 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Game\Shared\Game.cs
-FILE 2 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Game\Shared\Interfaces.cs
-FILE 3 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Native\CustomNativeWrapper.cs
-FILE 4 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Native\NativesServer.cs
-FILE 5 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\Entity.cs
-FILE 6 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\Interfaces.cs
-FILE 7 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\Ped.cs
-FILE 8 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\Prop.cs
-FILE 9 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\ServerWrappers.cs
-FILE 10 C:\gl\builds\cfx-fivem-0\code\client\clrcore-v2\Server\Vehicle.cs
+MODULE windows unknown 14E65E9E1E3848D48E0446A16FE2262E1 cfx-fivem-3
+INFO CODE_ID 6A71C61B1E000 CitizenFX.Server.dll
+FILE 1 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Game\Shared\Game.cs
+FILE 2 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Game\Shared\Interfaces.cs
+FILE 3 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Native\CustomNativeWrapper.cs
+FILE 4 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Native\NativesServer.cs
+FILE 5 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\Entity.cs
+FILE 6 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\Interfaces.cs
+FILE 7 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\Ped.cs
+FILE 8 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\Prop.cs
+FILE 9 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\ServerWrappers.cs
+FILE 10 C:\gl\builds\cfx-fivem-3\code\client\clrcore-v2\Server\Vehicle.cs
 FUNC 0 9 0 
 0 8 48 2
 8 1 49 2
