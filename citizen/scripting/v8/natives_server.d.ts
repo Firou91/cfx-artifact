@@ -751,6 +751,7 @@ declare function GetEntityVelocity(entity: number): number[];
  * *   3570
  * *   3751
  * *   3788
+ * *   3889
  * *   RedM
  * *   1311
  * *   1355
