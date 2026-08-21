@@ -884,6 +884,7 @@ global.GetEntityVelocity = function (entity) {
  * -   3570
  * -   3751
  * -   3788
+ * -   3889
  * -   RedM
  * -   1311
  * -   1355
