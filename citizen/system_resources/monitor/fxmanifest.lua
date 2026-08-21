@@ -5,7 +5,7 @@
 author 'Tabarra'
 description 'The official FiveM/RedM server web/in-game management platform.'
 repository 'https://github.com/tabarra/txAdmin'
-version '8.0.1'
+version '8.1.1'
 ui_label 'txAdmin'
 
 fx_version 'cerulean'

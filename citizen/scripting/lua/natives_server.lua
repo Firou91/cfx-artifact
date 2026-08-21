@@ -176,7 +176,8 @@ function Global.ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ,
 	return _in(0xc1c0855a, entity, forceType, x, y, z, offX, offY, offZ, nComponent, bLocalForce, bLocalOffset, bScaleByMass, bPlayAudio, bScaleByTimeWarp)
 end
 
---- Returns whether or not the specified player has enough information to start a commerce session for.
+--- > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+-- Returns whether or not the specified player has enough information to start a commerce session for.
 -- @param playerSrc The player handle
 -- @return True or false.
 function Global.CanPlayerStartCommerceSession(playerSrc)
@@ -347,7 +348,8 @@ function Global.DoesPlayerExist(playerSrc)
 	return _in(0x12038599, _ts(playerSrc), _r)
 end
 
---- Requests whether or not the player owns the specified SKU.
+--- > This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
+-- Requests whether or not the player owns the specified SKU.
 -- @param playerSrc The player handle
 -- @param skuId The ID of the SKU.
 -- @return A boolean.
@@ -730,6 +732,8 @@ end
 -- *   3407
 -- *   3570
 -- *   3751
+-- *   3788
+-- *   3889
 -- *   RedM
 -- *   1311
 -- *   1355
@@ -1021,7 +1025,7 @@ function Global.GetNumPlayerTokens(playerSrc)
 end
 
 --- Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
--- See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+-- See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
 -- @param resourceName The resource name.
 -- @param metadataKey The key to look up in the resource manifest.
 function Global.GetNumResourceMetadata(resourceName, metadataKey)
@@ -1409,7 +1413,7 @@ function Global.GetResourceKvpString(key)
 end
 
 --- Gets the metadata value at a specified key/index from a resource's manifest.
--- See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+-- See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
 -- @param resourceName The resource name.
 -- @param metadataKey The key in the resource manifest.
 -- @param index The value index, in a range from \[0..GET_NUM_RESOURCE_METDATA-1].
@@ -1925,7 +1929,8 @@ function Global.IsPlayerAceAllowed(playerSrc, object)
 	return _in(0xdedae23d, _ts(playerSrc), _ts(object), _r)
 end
 
---- Requests whether or not the commerce data for the specified player has loaded.
+--- > This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
+-- Requests whether or not the commerce data for the specified player has loaded.
 -- @param playerSrc The player handle
 -- @return A boolean.
 function Global.IsPlayerCommerceInfoLoaded(playerSrc)
@@ -2001,7 +2006,8 @@ function Global.IsVehicleWindowIntact(vehicle, windowIndex)
 	return _in(0xac4ef23d, vehicle, windowIndex, _r)
 end
 
---- Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
+--- > This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
+-- Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
 -- @param playerSrc The player handle
 function Global.LoadPlayerCommerceData(playerSrc)
 	return _in(0xa8f63eab, _ts(playerSrc))
@@ -2205,7 +2211,8 @@ function Global.RemoveWeaponFromPed(ped, weaponHash)
 	return _in(0x9c37f220, ped, _ch(weaponHash))
 end
 
---- Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
+--- > This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+-- Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
 -- will open the browser prompting further purchase details.
 -- @param playerSrc The player handle
 -- @param skuId The ID of the SKU.
@@ -2239,7 +2246,7 @@ function Global.ScheduleResourceTick(resourceName)
 end
 
 --- Sets the displayed sprite for a specific blip.
--- There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+-- There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
 -- @param blip The blip to change.
 -- @param spriteId The sprite ID to set.
 function Global.SetBlipSprite(blip, spriteId)

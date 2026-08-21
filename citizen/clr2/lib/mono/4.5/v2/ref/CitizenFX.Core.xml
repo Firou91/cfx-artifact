@@ -7658,6 +7658,8 @@
                 *   3407
                 *   3570
                 *   3751
+                *   3788
+                *   3889
             *   RedM
                 *   1311
                 *   1355
@@ -7726,7 +7728,7 @@
         <member name="M:CitizenFX.Shared.Native.Natives.GetNumResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString)">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -7890,7 +7892,7 @@
         <member name="M:CitizenFX.Shared.Native.Natives.GetResourceMetadata(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Int32)">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -8435,6 +8437,8 @@
                 *   3407
                 *   3570
                 *   3751
+                *   3788
+                *   3889
             *   RedM
                 *   1311
                 *   1355
@@ -8491,7 +8495,7 @@
         <member name="F:CitizenFX.Shared.Native.Hash.GET_NUM_RESOURCE_METADATA">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_NUM_RESOURCES">
@@ -8589,7 +8593,7 @@
         <member name="F:CitizenFX.Shared.Native.Hash.GET_RESOURCE_METADATA">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_RESOURCE_STATE">

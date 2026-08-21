@@ -6605,6 +6605,8 @@
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.CAN_PLAYER_START_COMMERCE_SESSION">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Returns whether or not the specified player has enough information to start a commerce session for.
             </summary>
         </member>
@@ -6720,6 +6722,8 @@
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.DOES_PLAYER_OWN_SKU">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
+            
             Requests whether or not the player owns the specified SKU.
             </summary>
         </member>
@@ -7040,6 +7044,8 @@
                 *   3407
                 *   3570
                 *   3751
+                *   3788
+                *   3889
             *   RedM
                 *   1311
                 *   1355
@@ -7301,7 +7307,7 @@
         <member name="F:CitizenFX.Core.Native.Hash.GET_NUM_RESOURCE_METADATA">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.GET_PASSWORD_HASH">
@@ -7610,7 +7616,7 @@
         <member name="F:CitizenFX.Core.Native.Hash.GET_RESOURCE_METADATA">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.GET_RESOURCE_PATH">
@@ -8030,6 +8036,8 @@
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.IS_PLAYER_COMMERCE_INFO_LOADED">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
+            
             Requests whether or not the commerce data for the specified player has loaded.
             </summary>
         </member>
@@ -8093,6 +8101,8 @@
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.LOAD_PLAYER_COMMERCE_DATA">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
+            
             Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
             </summary>
         </member>
@@ -8276,6 +8286,8 @@
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.REQUEST_PLAYER_COMMERCE_SESSION">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+            
             Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
             will open the browser prompting further purchase details.
             </summary>
@@ -8301,7 +8313,7 @@
             <summary>
             Sets the displayed sprite for a specific blip.
             
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
         </member>
         <member name="F:CitizenFX.Core.Native.Hash.SET_CONVAR">
@@ -9972,6 +9984,7 @@
         </member>
         <member name="M:CitizenFX.Core.Native.API.CanPlayerStartCommerceSession(System.String)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
             Returns whether or not the specified player has enough information to start a commerce session for.
             </summary>
             <param name="playerSrc">
@@ -10251,6 +10264,7 @@
         </member>
         <member name="M:CitizenFX.Core.Native.API.DoesPlayerOwnSku(System.String,System.Int32)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
             Requests whether or not the player owns the specified SKU.
             </summary>
             <param name="playerSrc">
@@ -10756,6 +10770,8 @@
             *   3407
             *   3570
             *   3751
+            *   3788
+            *   3889
             *   RedM
             *   1311
             *   1355
@@ -11135,7 +11151,7 @@
         <member name="M:CitizenFX.Core.Native.API.GetNumResourceMetadata(System.String,System.String)">
             <summary>
             Gets the amount of metadata values with the specified key existing in the specified resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -11677,7 +11693,7 @@
         <member name="M:CitizenFX.Core.Native.API.GetResourceMetadata(System.String,System.String,System.Int32)">
             <summary>
             Gets the metadata value at a specified key/index from a resource's manifest.
-            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+            See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
             </summary>
             <param name="resourceName">
             The resource name.
@@ -12393,6 +12409,7 @@
         </member>
         <member name="M:CitizenFX.Core.Native.API.IsPlayerCommerceInfoLoaded(System.String)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
             Requests whether or not the commerce data for the specified player has loaded.
             </summary>
             <param name="playerSrc">
@@ -12497,6 +12514,7 @@
         </member>
         <member name="M:CitizenFX.Core.Native.API.LoadPlayerCommerceData(System.String)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
             Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
             </summary>
             <param name="playerSrc">
@@ -12764,6 +12782,7 @@
         </member>
         <member name="M:CitizenFX.Core.Native.API.RequestPlayerCommerceSession(System.String,System.Int32)">
             <summary>
+            &gt; This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
             Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance
             will open the browser prompting further purchase details.
             </summary>
@@ -12818,7 +12837,7 @@
         <member name="M:CitizenFX.Core.Native.API.SetBlipSprite(System.Int32,System.Int32)">
             <summary>
             Sets the displayed sprite for a specific blip.
-            There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+            There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
             </summary>
             <param name="blip">
             The blip to change.
