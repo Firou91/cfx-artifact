@@ -1,6 +1,6 @@
-MODULE windows unknown 11A89FC8A497473FA360EACF573EFBBF1 cfx-fivem-0
-INFO CODE_ID 6ACE4AB21A000 CitizenFX.Core.Server.dll
-FILE 1 C:\gl\builds\cfx-fivem-0\code\client\clrref\server\CitizenFX.Core.cs
+MODULE windows unknown 43ED88570CB8472486B8AEAA228186171 cfx-fivem-3
+INFO CODE_ID 6ACF7BEE1A000 CitizenFX.Core.Server.dll
+FILE 1 C:\gl\builds\cfx-fivem-3\code\client\clrref\server\CitizenFX.Core.cs
 FUNC 0 7 0 
 0 6 14 1
 6 1 14 1
@@ -2444,15 +2444,17 @@ FUNC 8ff 2 0
 8ff 2 1807 1
 FUNC 901 2 0 
 901 2 1808 1
-FUNC 903 7 0 
-903 6 1812 1
-909 1 1812 1
-FUNC 90a 7 0 
-90a 6 1813 1
-910 1 1813 1
-FUNC 911 a 0 
-911 2 1814 1
-913 7 1814 1
-91a 1 1814 1
-FUNC 91b 2 0 
-91b 2 1815 1
+FUNC 903 2 0 
+903 2 1809 1
+FUNC 905 7 0 
+905 6 1813 1
+90b 1 1813 1
+FUNC 90c 7 0 
+90c 6 1814 1
+912 1 1814 1
+FUNC 913 a 0 
+913 2 1815 1
+915 7 1815 1
+91c 1 1815 1
+FUNC 91d 2 0 
+91d 2 1816 1
