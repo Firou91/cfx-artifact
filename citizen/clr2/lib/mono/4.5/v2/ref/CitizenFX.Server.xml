@@ -370,6 +370,141 @@
             PLAYER::GET_PLAYER_WANTED_LEVEL(player); executes in less than half the time. Which means that it's worth first checking if the wanted level needs to be cleared before clearing. However, this is mostly about good code practice and can important in other situations. The difference in time in this example is negligible.
             </summary>
         </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapeCircle(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a 2D circular collision shape at the specified position.
+            </summary>
+            <param name="x">
+            Center X coordinate.
+            </param>
+            <param name="y">
+            Center Y coordinate.
+            </param>
+            <param name="radius">
+            Circle radius.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapeCuboid(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates an axis-aligned box collision shape at the specified 3D position.
+            </summary>
+            <param name="x">
+            Center X coordinate.
+            </param>
+            <param name="y">
+            Center Y coordinate.
+            </param>
+            <param name="z">
+            Center Z coordinate.
+            </param>
+            <param name="width">
+            Total width.
+            </param>
+            <param name="depth">
+            Total depth.
+            </param>
+            <param name="height">
+            Total height.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapeCylinder(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a vertical cylinder collision shape at the specified 3D position.
+            </summary>
+            <param name="x">
+            Center X coordinate.
+            </param>
+            <param name="y">
+            Center Y coordinate.
+            </param>
+            <param name="z">
+            Center Z coordinate.
+            </param>
+            <param name="radius">
+            Cylinder radius.
+            </param>
+            <param name="height">
+            Total height.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapePolygon(System.Single,System.Single,System.Object)">
+            <summary>
+            Creates a polygon collision shape defined by a set of 2D points extruded between `minZ` and `maxZ`. Requires at least 3 points.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+            <param name="minZ">
+            Minimum Z height of the polygon.
+            </param>
+            <param name="maxZ">
+            Maximum Z height of the polygon.
+            </param>
+            <param name="points">
+            An array of interleaved x, y point pairs (e.g., `{x1, y1, x2, y2, x3, y3, ...}`). Must contain at least 3 pairs.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapeRectangle(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a rotated rectangle collision shape at the specified 3D position.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+            <param name="x">
+            Center X coordinate.
+            </param>
+            <param name="y">
+            Center Y coordinate.
+            </param>
+            <param name="z">
+            Center Z coordinate.
+            </param>
+            <param name="width">
+            Total width.
+            </param>
+            <param name="depth">
+            Total depth.
+            </param>
+            <param name="heading">
+            Rotation heading in radians.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.CreateColshapeSphere(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a spherical collision shape at the specified 3D position.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+            <param name="x">
+            Center X coordinate.
+            </param>
+            <param name="y">
+            Center Y coordinate.
+            </param>
+            <param name="z">
+            Center Z coordinate.
+            </param>
+            <param name="radius">
+            Sphere radius.
+            </param>
+            <returns>
+            The collision shape ID, or -1 on failure.
+            </returns>
+        </member>
         <member name="M:CitizenFX.Server.Native.Natives.CreateObject(System.UInt32,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Creates an object (prop) with the specified model at the specified position, offset on the Z axis by the radius of the object's model.
@@ -535,6 +670,14 @@
             A script handle for the vehicle, or 0 if the vehicle failed to be created.
             </returns>
         </member>
+        <member name="M:CitizenFX.Server.Native.Natives.DeleteColshape(System.Int32)">
+            <summary>
+            Deletes the collision shape with the given ID.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+        </member>
         <member name="M:CitizenFX.Server.Native.Natives.DeleteEntity(System.Int32)">
             <summary>
             Deletes the specified entity.
@@ -583,6 +726,17 @@
             </param>
             <returns>
             Returns whether or not the boat sinks when wrecked.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.DoesColshapeExist(System.Int32)">
+            <summary>
+            Returns whether a collision shape with the given ID exists.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists, false otherwise.
             </returns>
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.DoesEntityExist(System.Int32)">
@@ -759,6 +913,150 @@
             </summary>
             <returns>
             An object containing a list of vehicle handles.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapeCircleData(System.Int32,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Gets the data of a circle collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Center X coordinate output.
+            </param>
+            <param name="y">
+            Center Y coordinate output.
+            </param>
+            <param name="radius">
+            Circle radius output.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapeCuboidData(System.Int32,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Gets the data of a cuboid collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Center X coordinate output.
+            </param>
+            <param name="y">
+            Center Y coordinate output.
+            </param>
+            <param name="z">
+            Center Z coordinate output.
+            </param>
+            <param name="width">
+            Width output.
+            </param>
+            <param name="depth">
+            Depth output.
+            </param>
+            <param name="height">
+            Height output.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapeCylinderData(System.Int32,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Gets the data of a cylinder collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Center X coordinate output.
+            </param>
+            <param name="y">
+            Center Y coordinate output.
+            </param>
+            <param name="z">
+            Center Z coordinate output.
+            </param>
+            <param name="radius">
+            Cylinder radius output.
+            </param>
+            <param name="height">
+            Height output.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapePolygonData(System.Int32,System.Single@,System.Single@)">
+            <summary>
+            Gets the vertical bounds of a polygon collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="minZ">
+            Lower Z bound output.
+            </param>
+            <param name="maxZ">
+            Upper Z bound output.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapeRectangleData(System.Int32,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Gets the data of a rectangle collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Center X coordinate output.
+            </param>
+            <param name="y">
+            Center Y coordinate output.
+            </param>
+            <param name="z">
+            Center Z coordinate output.
+            </param>
+            <param name="width">
+            Width output.
+            </param>
+            <param name="depth">
+            Depth output.
+            </param>
+            <param name="heading">
+            Heading output in radians.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.GetColshapeSphereData(System.Int32,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Gets the data of a sphere collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Center X coordinate output.
+            </param>
+            <param name="y">
+            Center Y coordinate output.
+            </param>
+            <param name="z">
+            Center Z coordinate output.
+            </param>
+            <param name="radius">
+            Sphere radius output.
+            </param>
+            <returns>
+            Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
             </returns>
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.GetConsoleBuffer">
@@ -2625,6 +2923,86 @@
             Returns whether or not the boat is wrecked.
             </returns>
         </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeCircle(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a circle.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a circle, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeCuboid(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a cuboid.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a cuboid, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeCylinder(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a cylinder.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a cylinder, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeEntityTypeSet(System.Int32,System.Int32)">
+            <summary>
+            Returns whether the collision shape is set to detect the given entity type. Every type is enabled by default; a type reads as disabled only after `SET_COLSHAPE_ENTITY_TYPE(colShapeId, entityType, false)`.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="entityType">
+            The sync (network) entity type index (e.g. GTA5: automobile `0`, object `5`, ped `6`, player `11`). See `SET_COLSHAPE_ENTITY_TYPE` for the full per-game tables.
+            </param>
+            <returns>
+            Returns true if the entity type is detected by the collision shape, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapePolygon(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a polygon.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a polygon, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeRectangle(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a rectangle.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a rectangle, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsColshapeSphere(System.Int32)">
+            <summary>
+            Returns whether the collision shape with the given ID is a sphere.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <returns>
+            Returns true if the collision shape exists and is a sphere, false otherwise.
+            </returns>
+        </member>
         <member name="M:CitizenFX.Server.Native.Natives.IsDuplicityVersion">
             <summary>
             Gets whether or not this is the CitizenFX server.
@@ -2836,6 +3214,26 @@
             </param>
             <returns>
             A boolean.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.IsPointInsideColshape(System.Int32,System.Single,System.Single,System.Single)">
+            <summary>
+            Returns whether the given 3D point is inside the collision shape.
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="x">
+            Point X coordinate.
+            </param>
+            <param name="y">
+            Point Y coordinate.
+            </param>
+            <param name="z">
+            Point Z coordinate.
+            </param>
+            <returns>
+            Returns true if the point is inside the collision shape, false otherwise.
             </returns>
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.IsPrincipalAceAllowed(CitizenFX.Core.CString,CitizenFX.Core.CString)">
@@ -3232,6 +3630,65 @@
             </param>
             <param name="spriteId">
             The sprite ID to set.
+            </param>
+        </member>
+        <member name="M:CitizenFX.Server.Native.Natives.SetColshapeEntityType(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Sets whether the collision shape should detect a specific entity type.
+            
+            By default every entity type is enabled, so a fresh collision shape detects all entities. Setting a type to `false` excludes only that type from detection; every other type stays as it was. To detect a single type (e.g. automobiles only) disable every other type.
+            
+            The entity type is the sync (network) entity type index (tables below), not the `GET_ENTITY_TYPE` classification.
+            
+            ### GTA5 sync entity types
+            
+            | Index | Type |
+            | --- | --- |
+            | 0 | automobile |
+            | 1 | bike |
+            | 2 | boat |
+            | 3 | door |
+            | 4 | heli |
+            | 5 | object |
+            | 6 | ped |
+            | 7 | pickup |
+            | 8 | pickup placement |
+            | 9 | plane |
+            | 10 | submarine |
+            | 11 | player |
+            | 12 | trailer |
+            | 13 | train |
+            
+            ### RedM sync entity types
+            
+            | Index | Type |
+            | --- | --- |
+            | 0 | animal |
+            | 1 | automobile |
+            | 2 | bike |
+            | 3 | boat |
+            | 4 | door |
+            | 5 | heli |
+            | 6 | object |
+            | 7 | ped |
+            | 8 | pickup |
+            | 9 | pickup placement |
+            | 10 | plane |
+            | 11 | submarine |
+            | 12 | player |
+            | 13 | trailer |
+            | 14 | train |
+            | 15 | draft vehicle |
+            | 21 | horse |
+            </summary>
+            <param name="colShapeId">
+            The collision shape ID.
+            </param>
+            <param name="entityType">
+            The sync entity type index (see the tables above).
+            </param>
+            <param name="_value">
+            `true` to include this entity type in detection, `false` to exclude it.
             </param>
         </member>
         <member name="M:CitizenFX.Server.Native.Natives.SetConvar(CitizenFX.Core.CString,CitizenFX.Core.CString)">
@@ -4461,6 +4918,28 @@
             The model to use
             </param>
         </member>
+        <member name="M:CitizenFX.Server.Native.Natives.SetPlayerName(CitizenFX.Core.CString,CitizenFX.Core.CString)">
+            <summary>
+            Changes the name of a player, both for the server (`GET_PLAYER_NAME`, player lists) and for other
+            clients in-game.
+            
+            The name gets normalized the same way names sent on connection are: it is limited to 200 bytes and
+            invalid UTF-8 sequences get replaced.
+            
+            This can be used during `playerConnecting` as well as afterwards. Changing the name triggers the
+            `onPlayerNameChanged` server event.
+            </summary>
+            <param name="playerSrc">
+            The player to change the name of.
+            </param>
+            <param name="name">
+            The new name for the player.
+            </param>
+            <returns>
+            `true` if the name was changed, `false` if the player didn't exist, the name was empty/invalid, or
+            the player already had this name.
+            </returns>
+        </member>
         <member name="M:CitizenFX.Server.Native.Natives.SetPlayerRoutingBucket(CitizenFX.Core.CString,System.Int32)">
             <summary>
             Sets the routing bucket for the specified player.
@@ -5264,6 +5743,42 @@
             PLAYER::GET_PLAYER_WANTED_LEVEL(player); executes in less than half the time. Which means that it's worth first checking if the wanted level needs to be cleared before clearing. However, this is mostly about good code practice and can important in other situations. The difference in time in this example is negligible.
             </summary>
         </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_CIRCLE">
+            <summary>
+            Creates a 2D circular collision shape at the specified position.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_CUBOID">
+            <summary>
+            Creates an axis-aligned box collision shape at the specified 3D position.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_CYLINDER">
+            <summary>
+            Creates a vertical cylinder collision shape at the specified 3D position.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_POLYGON">
+            <summary>
+            Creates a polygon collision shape defined by a set of 2D points extruded between `minZ` and `maxZ`. Requires at least 3 points.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_RECTANGLE">
+            <summary>
+            Creates a rotated rectangle collision shape at the specified 3D position.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.CREATE_COLSHAPE_SPHERE">
+            <summary>
+            Creates a spherical collision shape at the specified 3D position.
+            
+            When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+            </summary>
+        </member>
         <member name="F:CitizenFX.Server.Native.Hash.CREATE_OBJECT">
             <summary>
             Creates an object (prop) with the specified model at the specified position, offset on the Z axis by the radius of the object's model.
@@ -5306,6 +5821,11 @@
             Unlike CREATE_AUTOMOBILE, this supports other vehicle types as well.
             </summary>
         </member>
+        <member name="F:CitizenFX.Server.Native.Hash.DELETE_COLSHAPE">
+            <summary>
+            Deletes the collision shape with the given ID.
+            </summary>
+        </member>
         <member name="F:CitizenFX.Server.Native.Hash.DELETE_ENTITY">
             <summary>
             Deletes the specified entity.
@@ -5336,6 +5856,11 @@
         <member name="F:CitizenFX.Server.Native.Hash.DOES_BOAT_SINK_WHEN_WRECKED">
             <summary>
             DOES_BOAT_SINK_WHEN_WRECKED
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.DOES_COLSHAPE_EXIST">
+            <summary>
+            Returns whether a collision shape with the given ID exists.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.DOES_ENTITY_EXIST">
@@ -5455,6 +5980,36 @@
             ```
             [127, 42, 13, 37]
             ```
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_CIRCLE_DATA">
+            <summary>
+            Gets the data of a circle collision shape.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_CUBOID_DATA">
+            <summary>
+            Gets the data of a cuboid collision shape.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_CYLINDER_DATA">
+            <summary>
+            Gets the data of a cylinder collision shape.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_POLYGON_DATA">
+            <summary>
+            Gets the vertical bounds of a polygon collision shape.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_RECTANGLE_DATA">
+            <summary>
+            Gets the data of a rectangle collision shape.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.GET_COLSHAPE_SPHERE_DATA">
+            <summary>
+            Gets the data of a sphere collision shape.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.GET_CONSOLE_BUFFER">
@@ -6587,6 +7142,41 @@
             IS_BOAT_WRECKED
             </summary>
         </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_CIRCLE">
+            <summary>
+            Returns whether the collision shape with the given ID is a circle.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_CUBOID">
+            <summary>
+            Returns whether the collision shape with the given ID is a cuboid.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_CYLINDER">
+            <summary>
+            Returns whether the collision shape with the given ID is a cylinder.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_ENTITY_TYPE_SET">
+            <summary>
+            Returns whether the collision shape is set to detect the given entity type. Every type is enabled by default; a type reads as disabled only after `SET_COLSHAPE_ENTITY_TYPE(colShapeId, entityType, false)`.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_POLYGON">
+            <summary>
+            Returns whether the collision shape with the given ID is a polygon.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_RECTANGLE">
+            <summary>
+            Returns whether the collision shape with the given ID is a rectangle.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_COLSHAPE_SPHERE">
+            <summary>
+            Returns whether the collision shape with the given ID is a sphere.
+            </summary>
+        </member>
         <member name="F:CitizenFX.Server.Native.Hash.IS_DUPLICITY_VERSION">
             <summary>
             Gets whether or not this is the CitizenFX server.
@@ -6690,6 +7280,11 @@
         <member name="F:CitizenFX.Server.Native.Hash.IS_PLAYER_USING_SUPER_JUMP">
             <summary>
             IS_PLAYER_USING_SUPER_JUMP
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.IS_POINT_INSIDE_COLSHAPE">
+            <summary>
+            Returns whether the given 3D point is inside the collision shape.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.IS_PRINCIPAL_ACE_ALLOWED">
@@ -6942,6 +7537,56 @@
             Sets the displayed sprite for a specific blip.
             
             There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.SET_COLSHAPE_ENTITY_TYPE">
+            <summary>
+            Sets whether the collision shape should detect a specific entity type.
+            
+            By default every entity type is enabled, so a fresh collision shape detects all entities. Setting a type to `false` excludes only that type from detection; every other type stays as it was. To detect a single type (e.g. automobiles only) disable every other type.
+            
+            The entity type is the sync (network) entity type index (tables below), not the `GET_ENTITY_TYPE` classification.
+            
+            ### GTA5 sync entity types
+            
+            | Index | Type |
+            | --- | --- |
+            | 0 | automobile |
+            | 1 | bike |
+            | 2 | boat |
+            | 3 | door |
+            | 4 | heli |
+            | 5 | object |
+            | 6 | ped |
+            | 7 | pickup |
+            | 8 | pickup placement |
+            | 9 | plane |
+            | 10 | submarine |
+            | 11 | player |
+            | 12 | trailer |
+            | 13 | train |
+            
+            ### RedM sync entity types
+            
+            | Index | Type |
+            | --- | --- |
+            | 0 | animal |
+            | 1 | automobile |
+            | 2 | bike |
+            | 3 | boat |
+            | 4 | door |
+            | 5 | heli |
+            | 6 | object |
+            | 7 | ped |
+            | 8 | pickup |
+            | 9 | pickup placement |
+            | 10 | plane |
+            | 11 | submarine |
+            | 12 | player |
+            | 13 | trailer |
+            | 14 | train |
+            | 15 | draft vehicle |
+            | 21 | horse |
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.SET_CONVAR">
@@ -7887,6 +8532,18 @@
             Set the model for a specific Player. Note that this will destroy the current Ped for the Player and create a new one, any reference to the old ped will be invalid after calling this.
             
             As per usual, make sure to request the model first and wait until it has loaded.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Server.Native.Hash.SET_PLAYER_NAME">
+            <summary>
+            Changes the name of a player, both for the server (`GET_PLAYER_NAME`, player lists) and for other
+            clients in-game.
+            
+            The name gets normalized the same way names sent on connection are: it is limited to 200 bytes and
+            invalid UTF-8 sequences get replaced.
+            
+            This can be used during `playerConnecting` as well as afterwards. Changing the name triggers the
+            `onPlayerNameChanged` server event.
             </summary>
         </member>
         <member name="F:CitizenFX.Server.Native.Hash.SET_PLAYER_ROUTING_BUCKET">
