@@ -219,73 +219,6 @@ function Global.ClearPlayerWantedLevel(player)
 	return _in(0x54ea5bcc, _ts(player))
 end
 
---- Creates a 2D circular collision shape at the specified position.
--- @param x Center X coordinate.
--- @param y Center Y coordinate.
--- @param radius Circle radius.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapeCircle(x, y, radius)
-	return _in(0xb9c5ac6d, x, y, radius, _ri)
-end
-
---- Creates an axis-aligned box collision shape at the specified 3D position.
--- @param x Center X coordinate.
--- @param y Center Y coordinate.
--- @param z Center Z coordinate.
--- @param width Total width.
--- @param depth Total depth.
--- @param height Total height.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapeCuboid(x, y, z, width, depth, height)
-	return _in(0x79ae8777, x, y, z, width, depth, height, _ri)
-end
-
---- Creates a vertical cylinder collision shape at the specified 3D position.
--- @param x Center X coordinate.
--- @param y Center Y coordinate.
--- @param z Center Z coordinate.
--- @param radius Cylinder radius.
--- @param height Total height.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapeCylinder(x, y, z, radius, height)
-	return _in(0x59ad59ac, x, y, z, radius, height, _ri)
-end
-
---- Creates a polygon collision shape defined by a set of 2D points extruded between `minZ` and `maxZ`. Requires at least 3 points.
--- When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
--- @param minZ Minimum Z height of the polygon.
--- @param maxZ Maximum Z height of the polygon.
--- @param points An array of interleaved x, y point pairs (e.g., `{x1, y1, x2, y2, x3, y3, ...}`). Must contain at least 3 pairs.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapePolygon(minZ, maxZ, points)
-	local points_bytes, points_len = _obj(points)
-	return _in(0x1b055f04, minZ, maxZ, points_bytes, points_len, _ri)
-end
-
---- Creates a rotated rectangle collision shape at the specified 3D position.
--- When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
--- @param x Center X coordinate.
--- @param y Center Y coordinate.
--- @param z Center Z coordinate.
--- @param width Total width.
--- @param depth Total depth.
--- @param heading Rotation heading in radians.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapeRectangle(x, y, z, width, depth, heading)
-	return _in(0x58c3f669, x, y, z, width, depth, heading, _ri)
-end
-
---- Creates a spherical collision shape at the specified 3D position.
--- When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
--- @param x Center X coordinate.
--- @param y Center Y coordinate.
--- @param z Center Z coordinate.
--- @param radius Sphere radius.
--- @return The collision shape ID, or -1 on failure.
-function Global.CreateColshapeSphere(x, y, z, radius)
-	return _in(0xb6710acb, x, y, z, radius, _ri)
-end
-
 --- Creates an object (prop) with the specified model at the specified position, offset on the Z axis by the radius of the object's model.
 -- This object will initially be owned by the creating script as a mission entity, and the model should be loaded already (e.g. using REQUEST_MODEL).
 -- @param modelHash The model to spawn.
@@ -367,12 +300,6 @@ function Global.CreateVehicleServerSetter(modelHash, type, x, y, z, heading)
 	return _in(0x6ae51d4b, _ch(modelHash), _ts(type), x, y, z, heading, _ri)
 end
 
---- Deletes the collision shape with the given ID.
--- @param colShapeId The collision shape ID.
-function Global.DeleteColshape(colShapeId)
-	return _in(0x16b9f12b, colShapeId)
-end
-
 --- Deletes the specified entity.
 -- **NOTE**: For trains this will only work if called on the train engine, it will not work on its carriages.
 -- @param entity The entity to delete.
@@ -408,13 +335,6 @@ end
 -- @return Returns whether or not the boat sinks when wrecked.
 function Global.DoesBoatSinkWhenWrecked(vehicle)
 	return _in(0x43f15989, vehicle, _r)
-end
-
---- Returns whether a collision shape with the given ID exists.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists, false otherwise.
-function Global.DoesColshapeExist(colShapeId)
-	return _in(0x9a2ec46d, colShapeId, _r)
 end
 
 --- DOES_ENTITY_EXIST
@@ -553,74 +473,6 @@ end
 
 function Global.GetBlipSprite(self)
 	return _in(0x72ff2e73, self, _ri)
-end
-
---- Gets the data of a circle collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Center X coordinate output.
--- @param y Center Y coordinate output.
--- @param radius Circle radius output.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapeCircleData(colShapeId)
-	return _in(0x1dc0d547, colShapeId, _f, _f, _f, _r)
-end
-
---- Gets the data of a cuboid collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Center X coordinate output.
--- @param y Center Y coordinate output.
--- @param z Center Z coordinate output.
--- @param width Width output.
--- @param depth Depth output.
--- @param height Height output.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapeCuboidData(colShapeId)
-	return _in(0x9d0bc07c, colShapeId, _f, _f, _f, _f, _f, _f, _r)
-end
-
---- Gets the data of a cylinder collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Center X coordinate output.
--- @param y Center Y coordinate output.
--- @param z Center Z coordinate output.
--- @param radius Cylinder radius output.
--- @param height Height output.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapeCylinderData(colShapeId)
-	return _in(0x83b79cda, colShapeId, _f, _f, _f, _f, _f, _r)
-end
-
---- Gets the vertical bounds of a polygon collision shape.
--- @param colShapeId The collision shape ID.
--- @param minZ Lower Z bound output.
--- @param maxZ Upper Z bound output.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapePolygonData(colShapeId)
-	return _in(0xcd8bfe8d, colShapeId, _f, _f, _r)
-end
-
---- Gets the data of a rectangle collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Center X coordinate output.
--- @param y Center Y coordinate output.
--- @param z Center Z coordinate output.
--- @param width Width output.
--- @param depth Depth output.
--- @param heading Heading output in radians.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapeRectangleData(colShapeId)
-	return _in(0xed8b05df, colShapeId, _f, _f, _f, _f, _f, _f, _r)
-end
-
---- Gets the data of a sphere collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Center X coordinate output.
--- @param y Center Y coordinate output.
--- @param z Center Z coordinate output.
--- @param radius Sphere radius output.
--- @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
-function Global.GetColshapeSphereData(colShapeId)
-	return _in(0xff94c6db, colShapeId, _f, _f, _f, _f, _r)
 end
 
 --- Returns the current console output buffer.
@@ -1976,56 +1828,6 @@ function Global.IsBoatWrecked(vehicle)
 	return _in(0x9049db44, vehicle, _r)
 end
 
---- Returns whether the collision shape with the given ID is a circle.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a circle, false otherwise.
-function Global.IsColshapeCircle(colShapeId)
-	return _in(0xaaeb581a, colShapeId, _r)
-end
-
---- Returns whether the collision shape with the given ID is a cuboid.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a cuboid, false otherwise.
-function Global.IsColshapeCuboid(colShapeId)
-	return _in(0x80a7b8df, colShapeId, _r)
-end
-
---- Returns whether the collision shape with the given ID is a cylinder.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a cylinder, false otherwise.
-function Global.IsColshapeCylinder(colShapeId)
-	return _in(0xa9cc9f3d, colShapeId, _r)
-end
-
---- Returns whether the collision shape is set to detect the given entity type. Every type is enabled by default; a type reads as disabled only after `SET_COLSHAPE_ENTITY_TYPE(colShapeId, entityType, false)`.
--- @param colShapeId The collision shape ID.
--- @param entityType The sync (network) entity type index (e.g. GTA5: automobile `0`, object `5`, ped `6`, player `11`). See `SET_COLSHAPE_ENTITY_TYPE` for the full per-game tables.
--- @return Returns true if the entity type is detected by the collision shape, false otherwise.
-function Global.IsColshapeEntityTypeSet(colShapeId, entityType)
-	return _in(0xb5b22c62, colShapeId, entityType, _r)
-end
-
---- Returns whether the collision shape with the given ID is a polygon.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a polygon, false otherwise.
-function Global.IsColshapePolygon(colShapeId)
-	return _in(0x91e01b1e, colShapeId, _r)
-end
-
---- Returns whether the collision shape with the given ID is a rectangle.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a rectangle, false otherwise.
-function Global.IsColshapeRectangle(colShapeId)
-	return _in(0xae0f25ea, colShapeId, _r)
-end
-
---- Returns whether the collision shape with the given ID is a sphere.
--- @param colShapeId The collision shape ID.
--- @return Returns true if the collision shape exists and is a sphere, false otherwise.
-function Global.IsColshapeSphere(colShapeId)
-	return _in(0xc53e0758, colShapeId, _r)
-end
-
 --- Gets whether or not this is the CitizenFX server.
 -- @return A boolean value.
 function Global.IsDuplicityVersion()
@@ -2163,16 +1965,6 @@ end
 -- @return A boolean.
 function Global.IsPlayerUsingSuperJump(playerSrc)
 	return _in(0xc7d2c20c, _ts(playerSrc), _r)
-end
-
---- Returns whether the given 3D point is inside the collision shape.
--- @param colShapeId The collision shape ID.
--- @param x Point X coordinate.
--- @param y Point Y coordinate.
--- @param z Point Z coordinate.
--- @return Returns true if the point is inside the collision shape, false otherwise.
-function Global.IsPointInsideColshape(colShapeId, x, y, z)
-	return _in(0x324dcfa6, colShapeId, x, y, z, _r)
 end
 
 --- IS_PRINCIPAL_ACE_ALLOWED
@@ -2459,53 +2251,6 @@ end
 -- @param spriteId The sprite ID to set.
 function Global.SetBlipSprite(blip, spriteId)
 	return _in(0x8dbbb0b9, blip, spriteId)
-end
-
---- Sets whether the collision shape should detect a specific entity type.
--- By default every entity type is enabled, so a fresh collision shape detects all entities. Setting a type to `false` excludes only that type from detection; every other type stays as it was. To detect a single type (e.g. automobiles only) disable every other type.
--- The entity type is the sync (network) entity type index (tables below), not the `GET_ENTITY_TYPE` classification.
--- ### GTA5 sync entity types
--- | Index | Type |
--- | --- | --- |
--- | 0 | automobile |
--- | 1 | bike |
--- | 2 | boat |
--- | 3 | door |
--- | 4 | heli |
--- | 5 | object |
--- | 6 | ped |
--- | 7 | pickup |
--- | 8 | pickup placement |
--- | 9 | plane |
--- | 10 | submarine |
--- | 11 | player |
--- | 12 | trailer |
--- | 13 | train |
--- ### RedM sync entity types
--- | Index | Type |
--- | --- | --- |
--- | 0 | animal |
--- | 1 | automobile |
--- | 2 | bike |
--- | 3 | boat |
--- | 4 | door |
--- | 5 | heli |
--- | 6 | object |
--- | 7 | ped |
--- | 8 | pickup |
--- | 9 | pickup placement |
--- | 10 | plane |
--- | 11 | submarine |
--- | 12 | player |
--- | 13 | trailer |
--- | 14 | train |
--- | 15 | draft vehicle |
--- | 21 | horse |
--- @param colShapeId The collision shape ID.
--- @param entityType The sync entity type index (see the tables above).
--- @param value `true` to include this entity type in detection, `false` to exclude it.
-function Global.SetColshapeEntityType(colShapeId, entityType, value)
-	return _in(0xb3a4d128, colShapeId, entityType, value)
 end
 
 --- SET_CONVAR
@@ -3500,20 +3245,6 @@ end
 -- @param model The model to use
 function Global.SetPlayerModel(player, model)
 	return _in(0x774a4c54, _ts(player), _ch(model))
-end
-
---- Changes the name of a player, both for the server (`GET_PLAYER_NAME`, player lists) and for other
--- clients in-game.
--- The name gets normalized the same way names sent on connection are: it is limited to 200 bytes and
--- invalid UTF-8 sequences get replaced.
--- This can be used during `playerConnecting` as well as afterwards. Changing the name triggers the
--- `onPlayerNameChanged` server event.
--- @param playerSrc The player to change the name of.
--- @param name The new name for the player.
--- @return `true` if the name was changed, `false` if the player didn't exist, the name was empty/invalid, or
--- 		the player already had this name.
-function Global.SetPlayerName(playerSrc, name)
-	return _in(0xd9857112, _ts(playerSrc), _ts(name), _r)
 end
 
 --- Sets the routing bucket for the specified player.
