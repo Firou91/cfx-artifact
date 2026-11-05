@@ -241,6 +241,72 @@ declare function ClearPedTasksImmediately(ped: number): void;
 declare function ClearPlayerWantedLevel(player: string): void;
 
 /**
+ * Creates a 2D circular collision shape at the specified position.
+ * @param x Center X coordinate.
+ * @param y Center Y coordinate.
+ * @param radius Circle radius.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapeCircle(x: number, y: number, radius: number): number;
+
+/**
+ * Creates an axis-aligned box collision shape at the specified 3D position.
+ * @param x Center X coordinate.
+ * @param y Center Y coordinate.
+ * @param z Center Z coordinate.
+ * @param width Total width.
+ * @param depth Total depth.
+ * @param height Total height.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapeCuboid(x: number, y: number, z: number, width: number, depth: number, height: number): number;
+
+/**
+ * Creates a vertical cylinder collision shape at the specified 3D position.
+ * @param x Center X coordinate.
+ * @param y Center Y coordinate.
+ * @param z Center Z coordinate.
+ * @param radius Cylinder radius.
+ * @param height Total height.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapeCylinder(x: number, y: number, z: number, radius: number, height: number): number;
+
+/**
+ * Creates a polygon collision shape defined by a set of 2D points extruded between `minZ` and `maxZ`. Requires at least 3 points.
+ * When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+ * @param minZ Minimum Z height of the polygon.
+ * @param maxZ Maximum Z height of the polygon.
+ * @param points An array of interleaved x, y point pairs (e.g., `{x1, y1, x2, y2, x3, y3, ...}`). Must contain at least 3 pairs.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapePolygon(minZ: number, maxZ: number, points: any): number;
+
+/**
+ * Creates a rotated rectangle collision shape at the specified 3D position.
+ * When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+ * @param x Center X coordinate.
+ * @param y Center Y coordinate.
+ * @param z Center Z coordinate.
+ * @param width Total width.
+ * @param depth Total depth.
+ * @param heading Rotation heading in radians.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapeRectangle(x: number, y: number, z: number, width: number, depth: number, heading: number): number;
+
+/**
+ * Creates a spherical collision shape at the specified 3D position.
+ * When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+ * @param x Center X coordinate.
+ * @param y Center Y coordinate.
+ * @param z Center Z coordinate.
+ * @param radius Sphere radius.
+ * @return The collision shape ID, or -1 on failure.
+ */
+declare function CreateColshapeSphere(x: number, y: number, z: number, radius: number): number;
+
+/**
  * Creates an object (prop) with the specified model at the specified position, offset on the Z axis by the radius of the object's model.
  * This object will initially be owned by the creating script as a mission entity, and the model should be loaded already (e.g. using REQUEST_MODEL).
  * @param modelHash The model to spawn.
@@ -322,6 +388,12 @@ declare function CreateVehicle(modelHash: string | number, x: number, y: number,
 declare function CreateVehicleServerSetter(modelHash: string | number, _type: string, x: number, y: number, z: number, heading: number): number;
 
 /**
+ * Deletes the collision shape with the given ID.
+ * @param colShapeId The collision shape ID.
+ */
+declare function DeleteColshape(colShapeId: number): void;
+
+/**
  * Deletes the specified entity.
  * **NOTE**: For trains this will only work if called on the train engine, it will not work on its carriages.
  * @param entity The entity to delete.
@@ -357,6 +429,13 @@ declare function DeleteTrain(entity: number): void;
  * @return Returns whether or not the boat sinks when wrecked.
  */
 declare function DoesBoatSinkWhenWrecked(vehicle: number): boolean;
+
+/**
+ * Returns whether a collision shape with the given ID exists.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists, false otherwise.
+ */
+declare function DoesColshapeExist(colShapeId: number): boolean;
 
 /**
  * DOES_ENTITY_EXIST
@@ -492,6 +571,74 @@ declare function GetAllPeds(): any;
 declare function GetAllVehicles(): any;
 
 declare function GetBlipSprite(self: number): number;
+
+/**
+ * Gets the data of a circle collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Center X coordinate output.
+ * @param y Center Y coordinate output.
+ * @param radius Circle radius output.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapeCircleData(colShapeId: number): [boolean, number, number, number];
+
+/**
+ * Gets the data of a cuboid collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Center X coordinate output.
+ * @param y Center Y coordinate output.
+ * @param z Center Z coordinate output.
+ * @param width Width output.
+ * @param depth Depth output.
+ * @param height Height output.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapeCuboidData(colShapeId: number): [boolean, number, number, number, number, number, number];
+
+/**
+ * Gets the data of a cylinder collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Center X coordinate output.
+ * @param y Center Y coordinate output.
+ * @param z Center Z coordinate output.
+ * @param radius Cylinder radius output.
+ * @param height Height output.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapeCylinderData(colShapeId: number): [boolean, number, number, number, number, number];
+
+/**
+ * Gets the vertical bounds of a polygon collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param minZ Lower Z bound output.
+ * @param maxZ Upper Z bound output.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapePolygonData(colShapeId: number): [boolean, number, number];
+
+/**
+ * Gets the data of a rectangle collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Center X coordinate output.
+ * @param y Center Y coordinate output.
+ * @param z Center Z coordinate output.
+ * @param width Width output.
+ * @param depth Depth output.
+ * @param heading Heading output in radians.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapeRectangleData(colShapeId: number): [boolean, number, number, number, number, number, number];
+
+/**
+ * Gets the data of a sphere collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Center X coordinate output.
+ * @param y Center Y coordinate output.
+ * @param z Center Z coordinate output.
+ * @param radius Sphere radius output.
+ * @return Returns true if the data was retrieved successfully. Returns false if the ID is invalid or the shape is of a different type.
+ */
+declare function GetColshapeSphereData(colShapeId: number): [boolean, number, number, number, number];
 
 /**
  * Returns the current console output buffer.
@@ -1863,6 +2010,56 @@ declare function IsBoatAnchoredAndFrozen(vehicle: number): boolean;
 declare function IsBoatWrecked(vehicle: number): boolean;
 
 /**
+ * Returns whether the collision shape with the given ID is a circle.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a circle, false otherwise.
+ */
+declare function IsColshapeCircle(colShapeId: number): boolean;
+
+/**
+ * Returns whether the collision shape with the given ID is a cuboid.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a cuboid, false otherwise.
+ */
+declare function IsColshapeCuboid(colShapeId: number): boolean;
+
+/**
+ * Returns whether the collision shape with the given ID is a cylinder.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a cylinder, false otherwise.
+ */
+declare function IsColshapeCylinder(colShapeId: number): boolean;
+
+/**
+ * Returns whether the collision shape is set to detect the given entity type. Every type is enabled by default; a type reads as disabled only after `SET_COLSHAPE_ENTITY_TYPE(colShapeId, entityType, false)`.
+ * @param colShapeId The collision shape ID.
+ * @param entityType The sync (network) entity type index (e.g. GTA5: automobile `0`, object `5`, ped `6`, player `11`). See `SET_COLSHAPE_ENTITY_TYPE` for the full per-game tables.
+ * @return Returns true if the entity type is detected by the collision shape, false otherwise.
+ */
+declare function IsColshapeEntityTypeSet(colShapeId: number, entityType: number): boolean;
+
+/**
+ * Returns whether the collision shape with the given ID is a polygon.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a polygon, false otherwise.
+ */
+declare function IsColshapePolygon(colShapeId: number): boolean;
+
+/**
+ * Returns whether the collision shape with the given ID is a rectangle.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a rectangle, false otherwise.
+ */
+declare function IsColshapeRectangle(colShapeId: number): boolean;
+
+/**
+ * Returns whether the collision shape with the given ID is a sphere.
+ * @param colShapeId The collision shape ID.
+ * @return Returns true if the collision shape exists and is a sphere, false otherwise.
+ */
+declare function IsColshapeSphere(colShapeId: number): boolean;
+
+/**
  * Gets whether or not this is the CitizenFX server.
  * @return A boolean value.
  */
@@ -2000,6 +2197,16 @@ declare function IsPlayerInFreeCamMode(playerSrc: string): boolean;
  * @return A boolean.
  */
 declare function IsPlayerUsingSuperJump(playerSrc: string): boolean;
+
+/**
+ * Returns whether the given 3D point is inside the collision shape.
+ * @param colShapeId The collision shape ID.
+ * @param x Point X coordinate.
+ * @param y Point Y coordinate.
+ * @param z Point Z coordinate.
+ * @return Returns true if the point is inside the collision shape, false otherwise.
+ */
+declare function IsPointInsideColshape(colShapeId: number, x: number, y: number, z: number): boolean;
 
 /**
  * IS_PRINCIPAL_ACE_ALLOWED
@@ -2285,6 +2492,53 @@ declare function ScheduleResourceTick(resourceName: string): void;
  * @param spriteId The sprite ID to set.
  */
 declare function SetBlipSprite(blip: number, spriteId: number): void;
+
+/**
+ * Sets whether the collision shape should detect a specific entity type.
+ * By default every entity type is enabled, so a fresh collision shape detects all entities. Setting a type to `false` excludes only that type from detection; every other type stays as it was. To detect a single type (e.g. automobiles only) disable every other type.
+ * The entity type is the sync (network) entity type index (tables below), not the `GET_ENTITY_TYPE` classification.
+ * ### GTA5 sync entity types
+ * | Index | Type             |
+ * | ----- | ---------------- |
+ * | 0     | automobile       |
+ * | 1     | bike             |
+ * | 2     | boat             |
+ * | 3     | door             |
+ * | 4     | heli             |
+ * | 5     | object           |
+ * | 6     | ped              |
+ * | 7     | pickup           |
+ * | 8     | pickup placement |
+ * | 9     | plane            |
+ * | 10    | submarine        |
+ * | 11    | player           |
+ * | 12    | trailer          |
+ * | 13    | train            |
+ * ### RedM sync entity types
+ * | Index | Type             |
+ * | ----- | ---------------- |
+ * | 0     | animal           |
+ * | 1     | automobile       |
+ * | 2     | bike             |
+ * | 3     | boat             |
+ * | 4     | door             |
+ * | 5     | heli             |
+ * | 6     | object           |
+ * | 7     | ped              |
+ * | 8     | pickup           |
+ * | 9     | pickup placement |
+ * | 10    | plane            |
+ * | 11    | submarine        |
+ * | 12    | player           |
+ * | 13    | trailer          |
+ * | 14    | train            |
+ * | 15    | draft vehicle    |
+ * | 21    | horse            |
+ * @param colShapeId The collision shape ID.
+ * @param entityType The sync entity type index (see the tables above).
+ * @param value `true` to include this entity type in detection, `false` to exclude it.
+ */
+declare function SetColshapeEntityType(colShapeId: number, entityType: number, value: boolean): void;
 
 /**
  * SET_CONVAR
@@ -3288,6 +3542,20 @@ declare function SetPlayerInvincible(player: string, bInvincible: boolean): void
  * @param model The model to use
  */
 declare function SetPlayerModel(player: string, model: string | number): void;
+
+/**
+ * Changes the name of a player, both for the server (`GET_PLAYER_NAME`, player lists) and for other
+ * clients in-game.
+ * The name gets normalized the same way names sent on connection are: it is limited to 200 bytes and
+ * invalid UTF-8 sequences get replaced.
+ * This can be used during `playerConnecting` as well as afterwards. Changing the name triggers the
+ * `onPlayerNameChanged` server event.
+ * @param playerSrc The player to change the name of.
+ * @param name The new name for the player.
+ * @return `true` if the name was changed, `false` if the player didn't exist, the name was empty/invalid, or
+the player already had this name.
+ */
+declare function SetPlayerName(playerSrc: string, name: string): boolean;
 
 /**
  * Sets the routing bucket for the specified player.
